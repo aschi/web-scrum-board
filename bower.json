@@ -1,0 +1,9 @@
+{
+  "name": "chatty",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1",
+    "angular": null,
+    "angular-mocks":null
+  }
+}

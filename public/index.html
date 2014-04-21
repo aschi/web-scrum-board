@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="scrumboardApp">
+<head>
+    <title>Scrumboard</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/javascripts/scrumboard.js"></script>
+    <script src="/javascripts/filters.js"></script>
+    <script src="/javascripts/controllers.js"></script>
+</head>
+<body>
+    <div>
+    <div class="container" ng-controller="scrumBoardCtrl">
+        <p class="addLink"><a ng-click="createTask()">Add Task</a></p>
+        <h1>Scrum-Board</h1>
+
+        <div class="todo">
+            <h2>Todo</h2>
+            <ul>
+                <li ng-repeat="task in tasks | filter:{status:'todo'}">
+                <a ng-click="deleteTask(task)" class="delete-task" title="Remove task">&#10006;</a>
+                <p class="nomargin" ng-click="open(task)">
+                <strong>{{task.title}}</strong><br>
+                {{task.description}}<br>
+                <em>Resp: {{task.responsible}}</em>
+                </p>
+                </li>
+            </ul>
+        </div>
+        <div class="inprogress">
+            <h2>In Progress</h2>
+            <ul>
+                <li ng-repeat="task in tasks | filter:{status:'inprogress'}">
+                <a ng-click="deleteTask(task)" class="delete-task" title="Remove task">&#10006;</a>
+                <p class="nomargin" ng-click="open(task)">
+                <strong>{{task.title}}</strong><br>
+                {{task.description}}<br>
+                <em>Resp: {{task.responsible}}</em>
+                </p>
+                </li>
+            </ul>
+        </div>
+        <div class="done">
+            <h2>Done</h2>
+            <ul>
+                <li ng-repeat="task in tasks | filter:{status:'done'}">
+                <a ng-click="deleteTask(task)" class="delete-task" title="Remove task">&#10006;</a>
+                <p class="nomargin" ng-click="open(task)">
+                <strong>{{task.title}}</strong><br>
+                {{task.description}}<br>
+                <em>Resp: {{task.responsible}}</em>
+                </p>
+                </li>
+            </ul>
+        </div>
+        
+        <ng-switch on="anyItemOpen()">
+         <div ng-switch-when="true">
+             <div ng-controller="taskCtrl">
+                <div class="overlay">
+                <div class="overlayEditor">
+                <form>
+                    <input type="hidden" ng-model="opened.id"/>
+                    <label>Title</label><br>
+                    <input type="text" size="35" ng-model="opened.title" required /><br>
+                    <label>Description</label><br>
+                    <textarea ng-model="opened.description" cols="34" rows="5"></textarea><br>
+                    <label>Responsible</label><br>
+                    <input type="text" size="35" ng-model="opened.responsible"><br>
+                    <label>Status</label><br>
+                    <select ng-model="opened.status">
+                        <option value="todo">Todo</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="done">Done</option>
+                    </select><br>
+                    <label>Cost estimate (h)</label><br>
+                    <select ng-model="opened.costestimate">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>5</option>
+                        <option>8</option>
+                    </select><br>
+                    <input type="submit" class="submitButton" value="Save" ng-click="save()"/>
+                </form>
+                </div>
+                </div>
+             </div>  
+                
+         </div>
+        </ng-switch>
+
+    </div>
+</body>
+</html>

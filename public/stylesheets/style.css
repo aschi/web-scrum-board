@@ -1,0 +1,112 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100%;
+}
+
+html, body{
+  position: relative;
+}
+
+
+
+a {
+  color: #00B7FF;
+}
+
+span.name {
+    color: grey;
+    padding-right: 1em;
+}
+span.room {
+	color:green;
+	padding-right: 1em;
+}
+
+div.container{
+	width:800px;
+	margin:0 auto;
+	padding:0;
+}
+
+div.todo, div.inprogress, div.done{
+	float:left;
+	width:200px;
+	padding:0 1em 0 1em;
+	border:1px solid grey;
+	min-height:500px;	
+	margin:0px;
+}
+div.todo{
+	margin-right:55px;
+}
+div.done{
+	margin-left:55px;
+}
+
+div.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+
+div.overlayEditor{
+	position:fixed;
+	top:20%;
+	left:42%;
+	padding:1em;
+	background-color:#EEEEEE;
+	width:300px;
+	border:1px solid #444444;
+}
+
+ul{
+	padding:0;
+	margin:0;
+	list-style-type: none;
+}
+
+li{
+	padding:0.5em;
+	margin:1em;
+	border:1px dashed grey;
+}
+
+label{
+	font-weight:bold;
+}
+
+textarea{
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+p.nomargin{
+	margin:0;
+	padding:0;
+}
+
+.delete-task {
+  display: block;
+  float: right;
+  margin-left: 10px;
+  text-align: center;
+  vertical-align: top;
+  font-style: normal;
+  background-color: #eee;
+  color: #888;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.submitButton{
+	margin-right:10px;
+	float:right;
+}
+
+.addLink{
+	float:right;
+}
