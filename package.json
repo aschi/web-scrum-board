@@ -11,5 +11,8 @@
     "karma": "*",
     "karma-jasmine": "*",
     "karma-chrome-launcher": "*"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
