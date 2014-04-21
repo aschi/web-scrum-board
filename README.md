@@ -1,7 +1,7 @@
 # Scrumboard
 
 ## Setup
-npm install
+npm install\
 bower install
 
 ## Run Tests
